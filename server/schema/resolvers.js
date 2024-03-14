@@ -10,3 +10,6 @@ const resolvers = {
         ...user_resolvers.Mutation,
     }
 }
+
+
+module.exports = resolvers;

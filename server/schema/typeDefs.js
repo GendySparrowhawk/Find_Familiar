@@ -10,7 +10,7 @@ type User {
     profilePicture: String
     createdAt: String
     updatedAt: String
-    campaigns: [Campaigns]
+    campaigns: [Campaign]
 }
 
 type Campaign {
@@ -20,6 +20,7 @@ type Campaign {
     bestiary: [Bestiary]
 }
 
+# npc typedefs
 type NPCS {
     _id: ID
     name: String
@@ -30,9 +31,11 @@ type NPCS {
     status: NPCStatus
   modifiers: NPCModifiers
   abilities: NPCAbilities
-  actions: [Actions]
-  bonuseActions: [BonusActions]
-  reactions: [Reactions]
+  spells: [spellData]
+  spellKnown: String
+  actions: [Action]
+  bonuseActions: [BonusAction]
+  reactions: [Reaction]
 }
 
 type Skill {
@@ -67,6 +70,78 @@ type NPCAbilities{
     cha: Int
 }
 
+type SpellData {
+    lvl: String
+    amount: Int
+}
+
+type Action {
+    name: String
+    description: String
+}
+
+type BonusAction {
+    name: String
+    description: String
+}
+
+type Reaction {
+    name: String
+    description: String
+}
+
+
+# bestiary typedefs
+type Bestiary {
+    monsters: [Monster]
+}
+
+type Monster {
+    _id: ID
+    name: String
+    cr: Int
+    skills:[Skill]
+    stats: MonsterStats
+  modifiers: MonsterModifiers
+  abilities: MonsterAbilities
+  attacks: [Attack]
+  actions: [Action]
+  bonuseActions: [BonusAction]
+  reactions: [Reaction]
+}
+
+# monster typedefs
+type MonsterStats {
+    hp: Int
+    ac: Int
+    initiative: Int
+    speed: String
+    hitDice: String
+}
+
+type MonsterModifiers {
+    str: Int
+    dex: Int
+    con: Int
+    int: Int
+    wis: Int
+    cha: Int
+}
+
+type MonsterAbilities {
+    str: Int
+    dex: Int
+    con: Int
+    int: Int
+    wis: Int
+    cha: Int
+}
+
+type Attack {
+    name: String
+    toHit: Int
+    damage: String
+}
 
 type Mutation {
         register(email: String!, username: String!, password: String!): User
@@ -74,6 +149,6 @@ type Mutation {
         logout: String
         uploadProfilePicture(id: ID!, profilePicture: Upload!): User
 }
-`
+`;
 
 module.exports = typeDefs;
