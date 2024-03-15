@@ -46,4 +46,33 @@ function Auth({ isLogin }) {
   const [authenticateUser] = useMutation(isLogin ? LOGIN_USER : REGISTER_USER, {
     variables: formData,
   });
+
+  const handleSubmit = async (e)=> {
+    e.preventDefault()
+
+    try {
+        const resolverName = isLogin ? 'login' : 'register'
+        const { data: userData } = await authenticateUser()
+        setFormData({ ...initalFormData})
+
+        setState(oldState => ({
+            ...oldState,
+            user: userData[resolverName]
+        }))
+        setErrorMessage('')
+        navigate("/")
+    } catch(err) {
+        setErrorMessage(err.message)
+    }
+  }
+
+  return (
+    <>
+    <section className='auth'> 
+        <form onSubmit={handleSubmit}>
+            <h2></h2>
+        </form>
+    </section>
+    </>
+  )
 }
