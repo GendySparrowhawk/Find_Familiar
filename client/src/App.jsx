@@ -1,7 +1,10 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect } from 'react'
+import { useQuery, gql } from '@apollo/client'
+import { useStore } from './store'
+
+import Protect from './componets/Protect'
+import Footer from './componets/Footer'
 
 function App() {
   const [count, setCount] = useState(0)
