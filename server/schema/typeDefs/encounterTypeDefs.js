@@ -1,6 +1,7 @@
-const { gql } = require("@apollo/server")
-const npcTypeDefs = require("./npcTypedefs");
-const monsterTypeDefs = require("./");
+// const { gql } = require("@apollo/server")
+const gql = String.raw;
+const { npcTypeDefs } = require("./npcTypedefs");
+const { monsterTypeDefs } = require("./monsterTypeDefs");
 
 const ecnounterTypeDefs = gql`
   type Encounter {
@@ -24,4 +25,4 @@ const ecnounterTypeDefs = gql`
   }
 `;
 
-module.exports = ecnounterTypeDefs;
+module.exports = { ecnounterTypeDefs };

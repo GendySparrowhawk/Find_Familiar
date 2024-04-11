@@ -1,5 +1,6 @@
-const { gql } = require("@apollo/server");
-const { npcTypeDefs } = require("./npcTypedefs");
+// const { gql } = require("@apollo/server");
+const gql = String.raw;
+const { npcTypeDefs } = require("./npcTypedefs.js");
 const { ecnounterTypeDefs } = require("./encounterTypeDefs");
 
 const campaignTypeDefs = gql`
@@ -11,4 +12,4 @@ const campaignTypeDefs = gql`
   }
 `;
 
-module.exports = campaignTypeDefs;
+module.exports = { campaignTypeDefs };

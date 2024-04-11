@@ -1,8 +1,7 @@
-const { gql } = require("@apollo/server");
-
+// const { gql } = require('@apollo/server');
+const gql = String.raw;
 const npcTypeDefs = gql`
   scalar AbilityScore
-
   type NPCS {
     _id: ID
     name: String
@@ -41,7 +40,7 @@ const npcTypeDefs = gql`
     hitDice: String
   }
 
-  type NPCStatusInput {
+  input NPCStatusInput {
     hp: Int
     ac: Int
     initiative: Int
@@ -74,7 +73,7 @@ const npcTypeDefs = gql`
     damageType: String
   }
 
-  type AttackInput {
+  input AttackInput {
     name: String
     range: String
     toHit: String
@@ -160,23 +159,25 @@ const npcTypeDefs = gql`
     description: String
   }
 
-  type Mutation {
-    createNPC(
-        id: ID
-      name: String!
-      race: String!
-      class: String!
-      level: Int!
-      skills: [SkillInput]!
-      status: NPCStatusInput!
-      abilities: NPCAbilityInput!
-      attacks: [AttackInput]
-      spells: [SpellInput]
-      spellKnown: [SpellSlotsInput]
-      spellDc: Int
-      actions: [ActionInput]
-      bonuseActions: [BonusActionInput]
-      reactions: [ReactionInput]
-    ): NPCS
-  }
+  # type Mutation {
+  #   createNPC(
+  #       id: ID
+  #     name: String!
+  #     race: String!
+  #     class: String!
+  #     level: Int!
+  #     skills: [SkillInput]!
+  #     status: NPCStatusInput!
+  #     abilities: NPCAbilityInput!
+  #     attacks: [AttackInput]
+  #     spells: [SpellInput]
+  #     spellKnown: [SpellSlotsInput]
+  #     spellDc: Int
+  #     actions: [ActionInput]
+  #     bonuseActions: [BonusActionInput]
+  #     reactions: [ReactionInput]
+  #   ): NPCS
+  # }
 `;
+
+module.exports = { npcTypeDefs };

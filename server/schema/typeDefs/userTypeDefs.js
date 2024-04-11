@@ -1,8 +1,9 @@
-const { gql } = require('@apollo/server');
+// const { gql } = require('@apollo/server');
+const gql = String.raw;
 const { campaignTypeDefs } = require('./campaignTypeDefs');
+const { bestiaryTypeDefs } = require('./bestiaryTypeDefs');
 
 const userTypeDefs = gql`
-  scalar Upload
   type User {
     _id: ID!
     email: String!
@@ -23,7 +24,6 @@ const userTypeDefs = gql`
     register(email: String!, username: String!, password: String!): User
     login(identifier: String!, password: String!): User
     logout: String
-    uploadProfilePicture(id: ID!, profilePicture: Upload!): User
   }
 `;
-module.exports = userTypeDefs;
+module.exports = { userTypeDefs };
