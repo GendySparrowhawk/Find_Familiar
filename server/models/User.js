@@ -48,12 +48,6 @@ const userSchema = new Schema(
         ref: "bestiary",
       },
     ],
-    npcs: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "npcs",
-      },
-    ],
     campaigns: [
       {
         type: Schema.Types.ObjectId,
@@ -77,17 +71,17 @@ const userSchema = new Schema(
         return user;
       },
     },
-  });
+  }
+);
 
-  userSchema.pre('save', async function (next) {
-    if(this.isNew) {
-        this.password = await hash(this.password, 10)
-    }
+userSchema.pre("save", async function (next) {
+  if (this.isNew) {
+    this.password = await hash(this.password, 10);
+  }
 
-    next();
-  });
+  next();
+});
 
-  const User = model('User', userSchema);
+const User = model("User", userSchema);
 
-  module.exports = User;
-
+module.exports = User;

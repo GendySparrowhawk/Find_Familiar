@@ -8,7 +8,7 @@ const { createToken } = require('../../auth');
 
 const user_resolvers = {
     Query: {
-        authenticate(_, _, context) {
+        authenticate(_, __, context) {
             return context.user;
         },
         async getUserById(_, { userId }) {

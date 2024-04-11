@@ -3,7 +3,7 @@ const cookieParser = require("cookie-parser");
 
 const { ApolloServer } = require("@apollo/server");
 const { expressMiddleware } = require("@apollo/server/express4");
-const { graphqlUpoadExpress } = require("graphql-upload");
+// const { graphqlUpoadExpress } = require("graphql-upload");
 
 const app = express();
 
@@ -37,9 +37,9 @@ async function startServer() {
 
   app.use(
     "/graphql",
-    graphqlUpoadExpress({
-      maxFileSize: 10 * 100 * 1000,
-    }),
+    // graphqlUpoadExpress({
+    //   maxFileSize: 10 * 100 * 1000,
+    // }),
     expressMiddleware(server, {
       context: authenticate,
     })
