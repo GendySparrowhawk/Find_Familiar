@@ -94,3 +94,5 @@ function ProfileImageUpload({ onUpload, toggle }) {
     </div>
   );
 }
+
+export default ProfileImageUpload;

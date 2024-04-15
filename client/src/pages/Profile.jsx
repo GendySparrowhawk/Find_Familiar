@@ -3,7 +3,7 @@ import { useStore } from "../store";
 import { useNavigate } from "react-router-dom";
 import { gql, useQuery, useMutation } from "@apollo/client";
 
-import ProfileImageUpload from "../components/ProfileImageUpload";
+import ProfileImageUpload from "../componets/ProfileImgUpload";
 
 function Profile() {
   const { user, setState } = useStore();
