@@ -2,7 +2,7 @@ const { GraphQLScalarType } = require("graphql");
 
 const modifer_resolvers = {
   AbilityScore: new GraphQLScalarType({
-    name: "Ability Score",
+    name: "AbilityScore",
     description: "atuo math for modifiers",
     parseValue(value) {
       return value;

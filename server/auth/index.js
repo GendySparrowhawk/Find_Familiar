@@ -21,7 +21,7 @@ async function authenticate({ req, res }) {
     const data = await verify(token, process.env.JWT_SECRET, {
       maxAge: "8hr",
     });
-    const user = await User.findById(data.user_id).populate("wishlists");
+    const user = await User.findById(data.user_id).populate("campagins");
 
     return { user, res };
   } catch (err) {

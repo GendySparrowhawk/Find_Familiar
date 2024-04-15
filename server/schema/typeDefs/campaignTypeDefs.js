@@ -7,8 +7,8 @@ const campaignTypeDefs = gql`
   type Campaign {
     _id: ID
     name: String
-    npcs: [NPCS]
-    encounters: [Encounter]
+    # npcs: [NPCS]
+    # encounters: [Encounter]
   }
 `;
 

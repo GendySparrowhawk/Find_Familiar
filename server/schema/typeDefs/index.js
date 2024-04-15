@@ -10,10 +10,10 @@ const { bestiaryTypeDefs } = require("./bestiaryTypeDefs");
 const typeDefs = gql`
   ${userTypeDefs}
   ${campaignTypeDefs}
-  ${ecnounterTypeDefs}
-  ${npcTypeDefs}
-  ${monsterTypeDefs}
-  ${bestiaryTypeDefs}
+  # ${ecnounterTypeDefs}
+  # ${npcTypeDefs}
+  # ${monsterTypeDefs}
+  # ${bestiaryTypeDefs}
 `;
 
 module.exports = typeDefs;

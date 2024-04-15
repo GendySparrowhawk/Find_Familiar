@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npm run dev:server & npm run dev:client",
-    "dev:client": "vite && postcss styles/tailwind.css -o client/build/tailwind.css --watch",
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "devCss": "cd client && concurrently \"vite\" \"postcss styles/tailwind.css -o build/tailwind.css --watch\"",
+    "dev:client":"cd client && vite",
     "dev:server": "cd server && nodemon server.js",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",

@@ -12,7 +12,7 @@ const userTypeDefs = gql`
     createdAt: String
     updatedAt: String
     campaigns: [Campaign]
-    bestiary: [Bestiary]
+    # bestiary: [Bestiary]
   }
 
   type Query {
