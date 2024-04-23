@@ -11,7 +11,7 @@ const initalFormData = {
 };
 
 const REGISTER_USER = gql`
-mutation RegisterUser($email: String!, $username: String!, password: String!) {
+mutation RegisterUser($email: String!, $username: String!, $password: String!) {
     register(email: $email, username: $username, password: $password) {
         _id
         email
@@ -25,7 +25,7 @@ mutation RegisterUser($email: String!, $username: String!, password: String!) {
 `;
 
 const LOGIN_USER = gql`
-mutation LoginUser($identifier: String!, password: String!) {
+mutation LoginUser($identifier: String!, $password: String!) {
     login(identifier: $identifier, password: $password) {
         _id
         email

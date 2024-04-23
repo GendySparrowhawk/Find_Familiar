@@ -6,7 +6,7 @@ const initialState = {
   user: null,
 };
 
-export function StoreProvider(props) {
+function StoreProvider(props) {
   const [state, setState] = useState(initialState);
 
   return (
@@ -16,4 +16,5 @@ export function StoreProvider(props) {
   );
 }
 
+export { StoreProvider };
 export const useStore = () => useContext(StoreContext);
